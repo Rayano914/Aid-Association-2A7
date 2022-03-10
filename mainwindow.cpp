@@ -8,10 +8,21 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
+
 {
     ui->setupUi(this);
+    ui->lineEdit_modif_type->addItem("Revenue");
+    ui->lineEdit_modif_type->addItem("Depense");
+    ui->letypeoperation->addItem("Revenue");
+    ui->letypeoperation->addItem("Depense");
 
-    ui->stackedWidget->setCurrentIndex(1);;
+    ui->stackedWidget->setCurrentIndex(1);
+    //control de saisi
+      ui->leidoperation->setValidator(new QIntValidator(0, 99999999, this));
+      ui->lineEdit_modif_id->setValidator(new QIntValidator(0, 99999999, this));
+      ui->lemontant->setValidator(new QIntValidator(0, 99999999, this));
+      ui->lineEdit_modif_montant->setValidator(new QIntValidator(0, 99999999, this));  
+
 }
 
 MainWindow::~MainWindow()
@@ -52,16 +63,19 @@ void MainWindow::on_supprimer_caisses_clicked()
 void MainWindow::on_ajoute_caisse_clicked()
 {
     //recuperation des informations saises:
-    int id_operation=ui->leidoperation->text().toInt();
-    int date_operation=ui->ledateoperation->text().toInt();
-      QString type_operation=ui->letypeoperation->text();
+     int id_operation=ui->leidoperation->text().toInt();
+     QString date_operation=ui->ledateoperation->text();
+      QString type_operation=ui->letypeoperation->currentText();
       int montant=ui->lemontant->text().toInt();
       caisse c (id_operation,date_operation,type_operation,montant);
       bool test=c.ajouter();
       QMessageBox msgBox;
 
         if(test)
-          {  msgBox.setText("Ajout avec succes.");
+          {
+            ui->leidoperation->clear();
+            ui->lemontant->clear();
+            msgBox.setText("Ajout avec succes.");
             ui->tablecaisse->setModel(c.afficher());
         }
         else
@@ -98,8 +112,8 @@ void MainWindow::on_modifier_caisse_clicked()
 
 
             int id_operation=ui->lineEdit_modif_id->text().toInt();
-            int date_operation=ui->lineEdit_modif_date->text().toInt();
-            QString type_operation=ui->lineEdit_modif_type->text();
+            QString date_operation=ui->lineEdit_modif_date->text();
+            QString type_operation=ui->lineEdit_modif_type->currentText();
             int montant=ui->lineEdit_modif_montant->text().toInt();
 
 

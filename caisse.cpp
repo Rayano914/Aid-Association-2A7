@@ -6,30 +6,30 @@
  caisse::caisse ()
 {
     id_operation=0;
-    date_operation=0;
+    date_operation="01/01/2022";
     type_operation="";
     montant=0;
 
 }
  //constructeur parametre:
-caisse::caisse(int id_operation, int date_operation ,  QString type_operation, int montant)
+caisse::caisse(int id_operation, QString date_operation ,  QString type_operation, int montant)
 {
     this->id_operation=id_operation;
     this->date_operation=date_operation;
+
     this->type_operation=type_operation;
     this->montant=montant;
-
 
 
 }
 
 int caisse::getid_operation(){return id_operation;}
-int caisse::getdate_operation(){return date_operation;}
+QString caisse::getdate_operation(){return date_operation;}
 QString caisse::gettype_operation(){return type_operation;}
 int caisse::getmontant(){return montant;}
 
 void caisse::setid_operation(int id_operation){this->id_operation=id_operation;}
-void caisse::setdate_operation(int date_operation){this->date_operation=date_operation;}
+void caisse::setdate_operation(QString date_operation){this->date_operation=date_operation;}
 void caisse::settype_operation(QString type_operation){this->type_operation=type_operation;}
 
 void caisse::setmontant(int montant){this->montant=montant;}
