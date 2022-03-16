@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/img"/>
+    <qresource prefix="/\img"/>
+    <qresource prefix="/">
+        <file>téléchargement.png</file>
+        <file>17445.png</file>
+        <file>search-icon-svg-white-magnifying-tape-transparent-png-1455312.png</file>
+        <file>search-flat-red-color-rounded-icon-vector-5629990.jpg</file>
+        <file>1024px-Search_Icon.svg.png</file>
+        <file>1200px-OOjs_UI_icon_history.svg.png</file>
+    </qresource>
+</RCC>
