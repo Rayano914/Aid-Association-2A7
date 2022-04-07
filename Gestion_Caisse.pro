@@ -1,4 +1,6 @@
 QT += core gui sql
+QT += printsupport
+QT += charts
 QT += widgets
 
 CONFIG += c++11 console
@@ -18,8 +20,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         caisse.cpp \
         connection.cpp \
+        excel.cpp \
+        historique.cpp \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+        stat_caisse.cpp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -27,9 +32,13 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    stat_caisse.ui
 
 HEADERS += \
     caisse.h \
     connection.h \
-    mainwindow.h
+    excel.h \
+    historique.h \
+    mainwindow.h \
+    stat_caisse.h
