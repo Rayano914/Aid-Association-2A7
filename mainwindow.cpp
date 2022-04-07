@@ -103,7 +103,9 @@ void MainWindow::on_supprimer_caisses_clicked()
         while(qry.next()){
         ui->comboBox_supprimer->addItem(qry.value(0).toString());
         }
+
     ui->stackedWidget->setCurrentIndex(5);
+
 
 }
 
@@ -130,6 +132,8 @@ void MainWindow::on_ajoute_caisse_clicked()
             msgBox.setText("Ajout avec succes.");
             ui->tablecaisse_2->setModel(c.afficher());
             ui->leidoperation_2->setModel(c.showid());
+            c.excel_dynamique();
+
 
 
 
@@ -140,6 +144,7 @@ void MainWindow::on_ajoute_caisse_clicked()
 
 
 }
+
 
 void MainWindow::on_supprimer_caisse_clicked()
 {
@@ -155,6 +160,7 @@ void MainWindow::on_supprimer_caisse_clicked()
            { msgBox.setText("Echec de suppression");}
             msgBox.exec();
             ui->tablecaisse_2->setModel(c.afficher());
+            c.excel_dynamique();
 
 }
 
@@ -212,6 +218,9 @@ void MainWindow::on_modifier_caisses_clicked()
 void MainWindow::on_lineEdit_12_textEdited(const QString &arg1)
 {
     QString arg=ui->lineEdit_12->text();
+    if (arg1 == NULL)
+        ui->tablecaisse_2->setModel(c.afficher());
+    else
          ui->tablecaisse_2->setModel(c.rechercher(arg));
 }
 
@@ -540,6 +549,8 @@ void MainWindow::on_modifier_caisse_3_clicked()
 
 
     ui->lemontant_3->clear();
+    c.excel_dynamique();
+
 }
 
 void MainWindow::on_toolButton_7_clicked()

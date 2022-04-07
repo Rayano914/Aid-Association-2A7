@@ -44,11 +44,10 @@ void stat_caisse::choix_pie()
 
 
 // Define slices and percentage of whole they take up
+
 QPieSeries *series = new QPieSeries();
 for(unsigned int i = 0; i < liste_cat.size(); i++)
 series->append(liste_cat[i] ,count[i]);
-
-
 
 
 // Create the chart widget
@@ -58,11 +57,9 @@ QChart *chart = new QChart();
 chart->addSeries(series);
 chart->legend()->show();
 
-
 // Used to display the chart
 chartView = new QChartView(chart,ui->label);
 chartView->setRenderHint(QPainter::Antialiasing);
 chartView->setMinimumSize(400,400);
-
 chartView->show();
 }

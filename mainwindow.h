@@ -41,7 +41,7 @@ private slots:
 
     void on_supprimer_caisse_clicked();
 
-    void on_modifier_caisse_clicked();
+    //void on_modifier_caisse_clicked();
      void on_historique_3_clicked();
 
      void on_toolButton_2_clicked();

@@ -43,7 +43,7 @@ public:
 
 signals:
     void exportedRowCount(int row);
-
+void excel_dynamique();
 private:
     QString excelFilePath;
     QString sheetName;

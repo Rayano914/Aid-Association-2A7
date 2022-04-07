@@ -3,6 +3,7 @@
 #include <QString>
 #include<QSqlQuery>
 #include <QSqlQueryModel>
+#include <QFile>
 
 class caisse
 {
@@ -32,7 +33,7 @@ QSqlQueryModel * rechercher(QString);
     void settype_operation(QString);
     void setmontant(int);
     void setdetails(QString);
-
+void excel_dynamique();
 
 private:
     int id_operation ;

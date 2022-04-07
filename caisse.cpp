@@ -154,3 +154,37 @@ model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
 
 }
 
+void caisse::excel_dynamique()
+{
+
+
+
+                   QFile file("C:/Users/asus/Desktop/Gestion_Caisse/excel.csv");
+                   QSqlQueryModel* model=new QSqlQueryModel();
+                   model->setQuery("SELECT * FROM  caisse");
+
+                   if (file.open(QFile::WriteOnly | QFile::Truncate)) {
+                       QTextStream data(&file);
+                       QStringList strList;
+                       for (int i = 0; i < model->columnCount(); i++) {
+                           if (model->headerData(i, Qt::Horizontal, Qt::DisplayRole).toString().length() > 0)
+                               strList.append("\"" + model->headerData(i, Qt::Horizontal, Qt::DisplayRole).toString() + "\"");
+                           else
+                               strList.append("");
+                       }
+                       data << strList.join(";") << "\n";
+                       for (int i = 0; i < model->rowCount(); i++) {
+                           strList.clear();
+                           for (int j = 0; j < model->columnCount(); j++) {
+
+                               if (model->data(model->index(i, j)).toString().length() > 0)
+                                   strList.append("\"" + model->data(model->index(i, j)).toString() + "\"");
+                               else
+                                   strList.append("");
+                           }
+                           data << strList.join(";") + "\n";
+                       }
+                       file.close();
+
+                   }
+}
