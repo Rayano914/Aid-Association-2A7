@@ -364,3 +364,61 @@ Contact_famille: 1
 
 
 
+Dernier Ajout
+cin: 9963
+nom: hassani
+prenom: atef
+age: 42
+type_maladie: Bonne Etat Sanitaire
+Rendez_vous: 16/04/2022
+um_chambre: 6
+Contact_famille: 11
+
+
+Dernier Ajout
+cin: 852463
+nom: ee
+prenom: rr
+age: 22
+type_maladie: Bonne Etat Sanitaire
+Rendez_vous: 21/04/2022
+um_chambre: 00
+Contact_famille: 11
+
+ 
+cin: 2222222
+nom: hh
+prenom: gg
+age: 13
+type_maladie: Bonne Etat Sanitaire
+Rendez_vous: 29/04/2022
+um_chambre: 1
+Contact_famille: 3
+
+cin: 2222222
+nom: hh
+prenom: gg
+age: 13
+type_maladie: Bonne Etat Sanitaire
+Rendez_vous: 29/04/2022
+um_chambre: 1
+Contact_famille: 3
+
+cin: 2222222
+nom: hh
+prenom: gg
+age: 13
+type_maladie: Bonne Etat Sanitaire
+Rendez_vous: 29/04/2022
+um_chambre: 1
+Contact_famille: 3
+
+cin: 89621140
+nom: ray
+prenom: ggg
+age: 623
+type_maladie: Bonne Etat Sanitaire
+Rendez_vous: 16/04/2022
+um_chambre: 0
+Contact_famille: 1
+

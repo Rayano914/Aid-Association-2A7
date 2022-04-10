@@ -166,9 +166,7 @@ QString date=ui->dateEdit->text();
 
         QMessageBox msgbox;
 
-        Historique h;
-      h.save_txt(ui->lecin->text(),ui->lenom->text(),ui->leprenom->text(),ui->leage->text(),type_maladie,date,ui->lenumchambre->text(),ui->lecontact->text());
-      ui->historique->setText(h.imp_hist());
+
         int erreur=0;
 
                 if(!P.chaine_Valid(nom)||nom=="")
@@ -196,12 +194,18 @@ QString date=ui->dateEdit->text();
  bool test=P.ajouter_patient();
         if(test)
         {
+            /*ui->lecin->clear();
+            ui->lenom->clear();
+            ui->leprenom->clear();
+            ui->lecontact->clear();
+            ui->lenumchambre->clear();
+            ui->dateEdit->clear();
+            ui->comboBox->clear();
+            ui->leage->clear();
+            Historique h;
+          h.save_txt(ui->lecin->text(),ui->lenom->text(),ui->leprenom->text(),ui->leage->text(),type_maladie,date,ui->lenumchambre->text(),ui->lecontact->text());
+          ui->historique->setText(h.imp_hist());*/
 
-          ui->lecin->clear();
-          ui->lenom->clear();
-          ui->leprenom->clear();
-          ui->lecontact->clear();
-          ui->lenumchambre->clear();
 
           QrCode qr = QrCode::encodeText(QR.toUtf8().constData(), QrCode::Ecc::HIGH);
           QString nomimg=nom+".PNG";
@@ -228,9 +232,7 @@ QString date=ui->dateEdit->text();
             msgbox.setText("Ajout avec succes.");
            ui->tableView->setModel(P.afficher_patient());
 
-           Historique h;
-         h.save_txt(ui->lecin->text(),ui->lenom->text(),ui->leprenom->text(),ui->leage->text(),type_maladie,date,ui->lenumchambre->text(),ui->lecontact->text());
-         ui->historique->setText(h.imp_hist());
+
         }
         else
             msgbox.setText("Echec d'ajout");
@@ -238,7 +240,7 @@ QString date=ui->dateEdit->text();
 
                 }
                 msgbox.exec();
-                 //ui->stackedWidget->setCurrentIndex(3);
+                 ui->stackedWidget->setCurrentIndex(3);
 
 
 }
