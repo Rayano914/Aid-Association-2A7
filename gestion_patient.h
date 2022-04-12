@@ -4,6 +4,7 @@
 #include <QCompleter>
 #include <QDirModel>
 #include "patient.h"
+#include "secformdialog.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Gestion_patient; }
@@ -76,23 +77,18 @@ private slots:
 
     void on_calendarAjout_selectionChanged();
 
-    void on_pushButton_clicked();
+
 
     void on_calendarWidget_selectionChanged();
 
     void on_addButton_clicked();
 
-    void on_pushButton_2_clicked();
 
-    void on_comboBox_pdf_currentIndexChanged(const QString &arg1);
-
-
-    void on_pushButton_3_clicked();
-
-private:
-    Ui::Gestion_patient *ui;
-    patient p;
-      QString selected;
-      QCompleter *StringCompleter;
-};
-#endif // GESTION_PATIENT_H
+    private:
+        Ui::Gestion_patient *ui;
+        patient p;
+          QString selected;
+          QCompleter *StringCompleter;
+          SECFORMDialog *secDialog;
+    };
+    #endif // GESTION_PATIENT_H

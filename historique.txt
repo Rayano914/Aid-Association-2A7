@@ -422,3 +422,12 @@ Rendez_vous: 16/04/2022
 um_chambre: 0
 Contact_famille: 1
 
+cin: 235789
+nom: nnklm
+prenom: vvg
+age: 20
+type_maladie: Bonne Etat Sanitaire
+Rendez_vous: 22/04/2022
+um_chambre: 0
+Contact_famille: 1
+

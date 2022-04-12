@@ -5,5 +5,7 @@
         <file>image/31096.png</file>
         <file>image/téléchargement__2_-removebg-preview - Copie.png</file>
         <file>image/1200px-OOjs_UI_icon_history.svg.png</file>
+        <file>qml/main.qml</file>
+        <file>images/eventindicator.png</file>
     </qresource>
 </RCC>

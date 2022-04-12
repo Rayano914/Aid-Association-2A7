@@ -13,8 +13,10 @@ patient::patient()
     nom="";
     prenom="";
     type_maladie="";
+    image="";
 }
-patient::patient(int cin,QString nom,QString prenom,int num_chambre,QDate rendez_vous,QString type_maladie,int age,int contact_famille)
+
+patient::patient(int cin,QString nom,QString prenom,int num_chambre,QDate rendez_vous,QString type_maladie,int age,int contact_famille,QString image)
 {
     this->cin=cin;
     this->age=age;
@@ -24,6 +26,7 @@ patient::patient(int cin,QString nom,QString prenom,int num_chambre,QDate rendez
     this->prenom=prenom;
     this->type_maladie=type_maladie;
     this->rendez_vous=rendez_vous;
+    this->image=image;
 }
 int patient::getcin()
 {return cin;}
@@ -50,6 +53,7 @@ void patient::settype_maladie(QString type_maladie){
 }
 void patient::setcin(int cin){
     this->cin=cin;
+
 }
 void patient::setage(int age){
     this->age=age;
@@ -63,6 +67,9 @@ void patient::setcontact_famille(int contact_famille)
 void patient::setrendez_vous(QDate rendez_vous){
     this->rendez_vous=rendez_vous;
 }
+void patient::setimage(QString image){
+    this->image=image;
+}
 
 bool patient::ajouter_patient(){
 
@@ -74,8 +81,9 @@ bool patient::ajouter_patient(){
     QString num_chambre_string= QString ::number(num_chambre);
     QString contact_famille_string= QString ::number(contact_famille);
 
-          query.prepare("INSERT INTO PATIENT (CIN,NOM_PATIENT,PRENOM_PATIENT,AGE,RENDEZ_VOUS,TYPE_MALADIE,NUM_CHAMBRE,CONTACT_FAMILLE ) "
-                        "VALUES (:CIN, :NOM_PATIENT,:PRENOM_PATIENT,:AGE,:RENDEZ_VOUS,:TYPE_MALADIE,:NUM_CHAMBRE,:CONTACT_FAMILLE)");
+
+          query.prepare("INSERT INTO PATIENT (CIN,NOM_PATIENT,PRENOM_PATIENT,AGE,RENDEZ_VOUS,TYPE_MALADIE,NUM_CHAMBRE,CONTACT_FAMILLE,IMAGE ) "
+                        "VALUES (:CIN, :NOM_PATIENT,:PRENOM_PATIENT,:AGE,:RENDEZ_VOUS,:TYPE_MALADIE,:NUM_CHAMBRE,:CONTACT_FAMILLE,:IMAGE)");
 
 
           query.bindValue(0, cin_string);
@@ -86,6 +94,7 @@ bool patient::ajouter_patient(){
           query.bindValue(5, type_maladie);
           query.bindValue(6, num_chambre_string);
           query.bindValue(7, contact_famille_string);
+          query.bindValue(8, image);
 
 
 
@@ -213,7 +222,7 @@ bool patient::modifier_patient(){
 
 
 
-          query.prepare("UPDATE patient SET CIN=:CIN,NOM_PATIENT=:NOM_PATIENT,PRENOM_PATIENT=:PRENOM_PATIENT,AGE=:AGE,RENDEZ_VOUS=:RENDEZ_VOUS,TYPE_MALADIE=:TYPE_MALADIE,NUM_CHAMBRE=:NUM_CHAMBRE,CONTACT_FAMILLE=:CONTACT_FAMILLE WHERE CIN=:CIN");
+          query.prepare("UPDATE patient SET CIN=:CIN,NOM_PATIENT=:NOM_PATIENT,PRENOM_PATIENT=:PRENOM_PATIENT,AGE=:AGE,RENDEZ_VOUS=:RENDEZ_VOUS,TYPE_MALADIE=:TYPE_MALADIE,NUM_CHAMBRE=:NUM_CHAMBRE,CONTACT_FAMILLE=:CONTACT_FAMILLE,IMAGE=:IMAGE WHERE CIN=:CIN");
 
           query.bindValue(":CIN", cin);
           query.bindValue(":NOM_PATIENT", nom);
@@ -223,6 +232,7 @@ bool patient::modifier_patient(){
           query.bindValue(":TYPE_MALADIE", type_maladie);
           query.bindValue(":NUM_CHAMBRE", num_chambre);
           query.bindValue(":CONTACT_FAMILLE", contact_famille);
+           query.bindValue(":IMAGE", image);
 
 
 

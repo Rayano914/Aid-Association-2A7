@@ -1,7 +1,16 @@
-QT += core gui sql axcontainer
+QT += core gui sql axcontainer qml quick widgets quickwidgets
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
+
+include(src/src.pri)
+include(../shared/shared.pri)
+
+OTHER_FILES += qml/main.qml
+
+
+target.path = $$[QT_INSTALL_EXAMPLES]/quickcontrols/controls/calendar
+INSTALLS += target
 
 # The following define makes your compiler emit warnings if you use
 # any Qt feature that has been marked deprecated (the exact warnings
@@ -20,17 +29,20 @@ SOURCES += \
     main.cpp \
     gestion_patient.cpp \
     patient.cpp \
-    qrcode.cpp
+    qrcode.cpp \
+    secformdialog.cpp
 
 HEADERS += \
     connection.h \
     gestion_patient.h \
     historique.h \
     patient.h \
-    qrcode.h
+    qrcode.h \
+    secformdialog.h
 
 FORMS += \
-    gestion_patient.ui
+    gestion_patient.ui \
+    secformdialog.ui
 
 
 # Default rules for deployment.

@@ -8,26 +8,9 @@
 #include <QSystemTrayIcon>
 #include <QDebug>
 #include <QUrl>
+#include <QFileDialog>
 #include "connection.h"
 #include "historique.h"
-#include <algorithm>
-#include <climits>
-#include <cstddef>
-#include <cstdlib>
-#include <cstring>
-#include <sstream>
-#include <stdexcept>
-#include <QPoint>
-#include <utility>
-#include <QPdfWriter>
-#include <QPainter>
-#include <QPointF>
-#include <QPicture>
-#include <QtGui>
-#include <QVariant>
-#include <QAbstractEventDispatcher>
-#include <QDir>
-#include <QSurfaceFormat>
 #include "qrcode.h"
 
 using std::int8_t;
@@ -81,7 +64,9 @@ Gestion_patient::~Gestion_patient()
 
 void Gestion_patient::on_calendrier_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(6);
+    secDialog= new SECFORMDialog(this);
+    secDialog->show();
+
 }
 
 void Gestion_patient::on_add_patient_clicked()
@@ -156,12 +141,17 @@ void Gestion_patient::on_ajoute_pati_clicked()
     QString type_maladie=ui->comboBox_2->currentText();
 QString dateR=ui->dateEdit->date().toString();
    QDate rendez_vous=ui->dateEdit->date();
+   QString nomimg=nom+".JPG";
+         QString chemain=RESULTS_PATH2+nomimg;
+
+   QString image=chemain;
+
 //QDate rendez_vous =ui->calendarAjout->selectedDate();
-   patient P(cin,nom,prenom,num_chambre,rendez_vous,type_maladie,age,contact_famille);
+   patient P(cin,nom,prenom,num_chambre,rendez_vous,type_maladie,age,contact_famille,image);
 
  //QString nomimg=nom+".PNG";
 
-   QString QR="Nom \t "+nom+"Prenom \t"+prenom+"Date Rendez_vous\t"+dateR;
+   QString QR="Nom \t "+nom+"Prenom \t"+prenom+"Date Rendez_vous \t"+dateR;
 QString date=ui->dateEdit->text();
 
         QMessageBox msgbox;
@@ -208,7 +198,7 @@ QString date=ui->dateEdit->text();
 
 
           QrCode qr = QrCode::encodeText(QR.toUtf8().constData(), QrCode::Ecc::HIGH);
-          QString nomimg=nom+".PNG";
+
 
           // Read the black & white pixels
           QImage im(qr.getSize(),qr.getSize(), QImage::Format_RGB888);
@@ -223,9 +213,11 @@ QString date=ui->dateEdit->text();
                       im.setPixel(x, y,qRgb(0, 0, 0));
               }
           }
-          im=im.scaled(100,100);
-          im.save(RESULTS_PATH2 + nomimg,"PNG");
 
+          im=im.scaled(100,100);
+          im.save(chemain,"JPG");
+
+          //ui->labe_i->setText(chemain);
 
          ui->Qr->setPixmap(QPixmap::fromImage(im));
 
@@ -288,7 +280,7 @@ void Gestion_patient::on_comboBox_currentIndexChanged(const QString &arg1)
        ui->comboBox_3->setCurrentText(qry.value(5).toString());
        ui->lenum_chambre2->setText(qry.value(6).toString());
        ui->lecontact2->setText(qry.value(7).toString());
-
+ui->leqr->setText(qry.value(8).toString());
 
       }
     }
@@ -302,6 +294,9 @@ void Gestion_patient::on_comboBox_currentIndexChanged(const QString &arg1)
 
 void Gestion_patient::on_modifier_pati_clicked()
 {
+    const QString RESULTS_PATH2 = "C:/Users/rayan/OneDrive/Bureau/Gestion_patientV2/auto_QRcode/";
+        QDir().rmpath(RESULTS_PATH2);
+        QDir().mkpath(RESULTS_PATH2);
     patient P;
 
     QMessageBox msg;
@@ -315,16 +310,56 @@ P.setnom(ui->lenom2->text());
 
 P.settype_maladie(ui->comboBox_3->currentText());
 P.setrendez_vous(ui->dateEdit_2->date());
+P.setimage(ui->leqr->text());
+/*int cin=ui->comboBox->currentText().toInt();
+int age=ui->leage2->text().toInt();
+int num_chambre=ui->lenum_chambre2->text().toInt();
+int contact_famille=ui->lecontact2->text().toInt();*/
+QString nom=ui->lenom2->text();
+QString prenom=ui->leprenom2->text();
+//QDate dateR=ui->dateEdit_2->date();
+QString nomimg=nom+".JPG";
+      QString chemain2=RESULTS_PATH2+nomimg;
+//String image=ui->l_chemain->text();
+     QString image=chemain2;
+   QString dateR=ui->dateEdit_2->date().toString();
+      QString QR="Nom \t "+nom+"Prenom \t"+prenom+"Date Rendez_vous \t"+dateR;
 
+//QString image=chemain2;
+      QrCode qr = QrCode::encodeText(QR.toUtf8().constData(), QrCode::Ecc::HIGH);
+
+
+      // Read the black & white pixels
+      QImage im(qr.getSize(),qr.getSize(), QImage::Format_RGB888);
+      for (int y = 0; y < qr.getSize(); y++) {
+          for (int x = 0; x < qr.getSize(); x++) {
+              int color = qr.getModule(x, y);  // 0 for white, 1 for black
+
+              // You need to modify this part
+              if(color==0)
+                  im.setPixel(x, y,qRgb(254, 254, 254));
+              else
+                  im.setPixel(x, y,qRgb(0, 0, 0));
+          }
+      }
+
+      im=im.scaled(100,100);
+      im.save(chemain2,"JPG");
+
+      //ui->l_chemain->setText(chemain2);
+      ui->leqr->setText(chemain2);
+
+     ui->Qrmodif->setPixmap(QPixmap::fromImage(im));
 bool test=P.modifier_patient();
 
 
     if(test)
     {
-       msg.setText("modification avec succès");
-       ui->stackedWidget->setCurrentIndex(3);
 
-        ui->tableView->setModel(P.afficher_patient());
+       msg.setText("modification avec succès");
+      // ui->stackedWidget->setCurrentIndex(3);
+
+       // ui->tableView->setModel(P.afficher_patient());
 
 
 
@@ -397,10 +432,10 @@ void Gestion_patient::on_toolButton_4_clicked()
     QString nom=ui->lenom->text();
     QString prenom=ui->leprenom->text();
     QString type_maladie=ui->comboBox_2->currentText();
-
+QString image;
    QDate rendez_vous=ui->dateEdit->date();
 //QDate rendez_vous =ui->calendarAjout->selectedDate();
-   patient P(cin,nom,prenom,num_chambre,rendez_vous,type_maladie,age,contact_famille);
+   patient P(cin,nom,prenom,num_chambre,rendez_vous,type_maladie,age,contact_famille,image);
 
 
 QString date=ui->dateEdit->text();
@@ -424,8 +459,7 @@ void Gestion_patient::on_calendarAjout_clicked(const QDate &rendez_vous)
 
 void Gestion_patient::on_qrCode_clicked()
 {
-    QDir().rmpath(RESULTS_PATH);
-    QDir().mkpath(RESULTS_PATH);
+
     int tabeq=ui->tableView->currentIndex().row();
                        QVariant cinn=ui->tableView->model()->data(ui->tableView->model()->index(tabeq,0));
                        QString cin=cinn.toString();
@@ -438,6 +472,7 @@ void Gestion_patient::on_qrCode_clicked()
                         QString nom,prenom,type_maladie;//attributs
                         int age,num_chambre,contact_famille;
                         QString rendez_vous;
+                        QString image;
 
                       while(qry.next()){
 
@@ -449,42 +484,16 @@ void Gestion_patient::on_qrCode_clicked()
                         type_maladie=qry.value(5).toString();
                             num_chambre=qry.value(6).toInt();
                              contact_famille=qry.value(7).toInt();
-                          ;
+                             image=qry.value(8).toString();
+
 
 
                        }
-                      //const QString RESULTS_PATH = "C:/Users/rayan/OneDrive/Bureau/codeqryahya/";
-                      const QString RESULTS_PATH = "C:/Users/rayan/OneDrive/Bureau/Gestion_patientV2/Qrcode/";
-                       cin=QString(cin);
-                       QString R="Cin \t"+cin+"Nom \t "+nom+"Prenom \t"+prenom+"age\t"+age+"Date Rendez_vous\t"+rendez_vous;
 
-
-
-        //cin="CIN:\t" +cin+ "NOM\t:" +nom+ "age:\t" +age+ "num_chambre:\t" +num_chambre+ "contact_famille:\t" +contact_famille+ "Rendez_vous:\t" +rendez_vous ;
-
-        cin="CODE:\t" +cin+ "NOM\t:" +nom+ "prenom:\t" +prenom+ "age:\t" +age+ "type_maladie:\t" +type_maladie+ "num_chambre:\t" +num_chambre + "contact:\t" +contact_famille ;
-
-                       QrCode qr = QrCode::encodeText(R.toUtf8().constData(), QrCode::Ecc::HIGH);
-                       QString nomimg=nom+".PNG";
-
-                       // Read the black & white pixels
-                       QImage im(qr.getSize(),qr.getSize(), QImage::Format_RGB888);
-                       for (int y = 0; y < qr.getSize(); y++) {
-                           for (int x = 0; x < qr.getSize(); x++) {
-                               int color = qr.getModule(x, y);  // 0 for white, 1 for black
-
-                               // You need to modify this part
-                               if(color==0)
-                                   im.setPixel(x, y,qRgb(254, 254, 254));
-                               else
-                                   im.setPixel(x, y,qRgb(0, 0, 0));
-                           }
-                       }
-                       im=im.scaled(100,100);
-                       im.save(RESULTS_PATH + nomimg,"PNG");
-
-
+                      const char* myChar=image.toStdString().c_str() ;
+                      QImage im(tr(myChar));
                       ui->qrcode->setPixmap(QPixmap::fromImage(im));
+
 }
 
 void Gestion_patient::on_calendarAjout_selectionChanged()
@@ -492,67 +501,7 @@ void Gestion_patient::on_calendarAjout_selectionChanged()
     ui->dateEdit->setDate(ui->calendarAjout->selectedDate());
 }
 
-void Gestion_patient::on_pushButton_clicked()
-{
 
-    QPdfWriter pdf("C:Users\\rayan\\OneDrive\\Bureau\\Gestion_patientV2\\patient.pdf");
-
-
-                    QPainter painter(&pdf);
-                    //painter.begin(&pdf);
-
-                    //QImage image("C:\\Users\\MSI\\OneDrive\\Bureau\\yahyav3\\images\\logo_c++-1.png");
-                   // painter.drawImage(15,15,image);
-
-                     painter.setPen(Qt::red);
-                     painter.setFont(QFont("Time New Roman", 25));
-                     painter.drawText(3200,1400,"Patient");
-                     painter.setPen(Qt::black);
-                     painter.setFont(QFont("Time New Roman", 15));
-                     painter.setFont(QFont("Time New Roman", 9));
-                                      painter.drawText(400,3800,"CIN: ");
-
-                                      painter.drawText(400,4650,"NOM_Patient : ");
-
-                                      painter.drawText(400,5600,"PRENOM_PATIENT: ");
-
-                                      painter.drawText(400,6550,"AGE: ");
-
-                                      painter.drawText(400,7500,"RENDEZ_VOUS: ");
-
-                                      painter.drawText(400,8450,"TYPE_MALADIE:");
-                                      painter.drawText(400,8450,"NUM_CHAMBRE:");
-                                          painter.drawText(400,8450,"CONTACT_FAMILLE:");
-
-                                      painter.drawText(7800,10100,"Signature");
-                                      painter.drawText(8150,10300,".");
-
-                     painter.drawRect(100,3000,9400,9000);
-
-                     QSqlQuery query;
-                     int cin=ui->comboBox_pdf->currentText().toInt();
-                     //int id=ui->le_id_4->currentText().toInt();
-                     query.prepare("SELECT * FROM patient WHERE cin= :cin");
-                     query.bindValue(":cin", cin);
-                     //query.prepare("select  ID_LIVR,NOM_LIVREUR,DATE_LIVRAISON,REF_CMD,NOM_CL,ADR_CL FROM livraisons NATURAL JOIN COMMANDES where ID_LIVR=:ID_LIVR");   //on supprime  where ID_LIVR=:ID_LIVR si tout livraisins
-                     //query.bindValue(":ID_LIVR", id);
-                     query.exec();
-
-                     query.next();
-                                      painter.drawText(800,3800,query.value(0).toString());
-                                      painter.drawText(1550,4650,query.value(1).toString());
-                                      painter.drawText(1750,5600,query.value(2).toString());
-                                      painter.drawText(1600,6550,query.value(3).toString());
-                                      painter.drawText(1400,7500,query.value(4).toString());
-                                      painter.drawText(1700,8450,query.value(5).toString());
-                                      painter.drawText(1700,8450,query.value(6).toString());
-                                      painter.drawText(1700,8450,query.value(7).toString());
-
-
-
-                     QMessageBox::information(this, QObject::tr("PDF Enregistré!"),
-                     QObject::tr("PDF Enregistré!.\n" "Click Cancel to exit."), QMessageBox::Cancel);
-}
 
 void Gestion_patient::on_calendarWidget_selectionChanged()
 { QDate date;
@@ -575,24 +524,8 @@ void Gestion_patient::on_addButton_clicked()
    // ui->tablC->setModel(p.afficher_C(r));
 }
 
-void Gestion_patient::on_pushButton_2_clicked()
-{ ui->stackedWidget->setCurrentIndex(7);
-    connection c;
-    QSqlQueryModel * modal =new QSqlQueryModel();
-    //c.createconnect();
-    QSqlQuery *qry =new QSqlQuery(c.db);
-    qry->prepare("SELECT CIN FROM patient");
-    qry->exec();
-    modal->setQuery(*qry);
-    ui->comboBox_pdf->setModel(modal);
-}
 
-void Gestion_patient::on_comboBox_pdf_currentIndexChanged(const QString &arg1)
-{
-    QString cin=ui->comboBox_pdf->currentText();
-}
 
-void Gestion_patient::on_pushButton_3_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(2);
-}
+
+
+

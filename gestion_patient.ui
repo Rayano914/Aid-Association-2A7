@@ -77,7 +77,7 @@ border-radius:15px;
 }</string>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="stackedWidgetPage1">
       <widget class="QLabel" name="label">
@@ -422,8 +422,8 @@ background-color: rgb(139, 4, 35);</string>
       <widget class="QPushButton" name="add_patient">
        <property name="geometry">
         <rect>
-         <x>340</x>
-         <y>80</y>
+         <x>350</x>
+         <y>110</y>
          <width>141</width>
          <height>41</height>
         </rect>
@@ -438,8 +438,8 @@ background-color: rgb(139, 4, 35);</string>
       <widget class="QPushButton" name="dispaly_patients">
        <property name="geometry">
         <rect>
-         <x>340</x>
-         <y>150</y>
+         <x>350</x>
+         <y>200</y>
          <width>141</width>
          <height>41</height>
         </rect>
@@ -451,8 +451,8 @@ background-color: rgb(139, 4, 35);</string>
       <widget class="QPushButton" name="update_patients">
        <property name="geometry">
         <rect>
-         <x>340</x>
-         <y>220</y>
+         <x>350</x>
+         <y>290</y>
          <width>141</width>
          <height>41</height>
         </rect>
@@ -464,40 +464,14 @@ background-color: rgb(139, 4, 35);</string>
       <widget class="QPushButton" name="delete_patients">
        <property name="geometry">
         <rect>
-         <x>340</x>
-         <y>290</y>
+         <x>350</x>
+         <y>380</y>
          <width>141</width>
          <height>41</height>
         </rect>
        </property>
        <property name="text">
         <string>Supprimer</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="calendrier">
-       <property name="geometry">
-        <rect>
-         <x>340</x>
-         <y>360</y>
-         <width>141</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Calendrier</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="pushButton_2">
-       <property name="geometry">
-        <rect>
-         <x>340</x>
-         <y>430</y>
-         <width>141</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>PDF</string>
        </property>
       </widget>
      </widget>
@@ -729,6 +703,19 @@ background-color: rgb(139, 4, 35);
         <string>CODE QR</string>
        </property>
       </widget>
+      <widget class="QPushButton" name="calendrier">
+       <property name="geometry">
+        <rect>
+         <x>590</x>
+         <y>470</y>
+         <width>141</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Calendrier</string>
+       </property>
+      </widget>
       <zorder>lineEdit_12</zorder>
       <zorder>toolButton_2</zorder>
       <zorder>toolButton_5</zorder>
@@ -739,6 +726,7 @@ background-color: rgb(139, 4, 35);
       <zorder>label_20</zorder>
       <zorder>qrcode</zorder>
       <zorder>qrCode</zorder>
+      <zorder>calendrier</zorder>
      </widget>
      <widget class="QWidget" name="stackedWidgetPage3">
       <widget class="QPushButton" name="modifier_pati">
@@ -992,6 +980,49 @@ background-color: rgb(139, 4, 35);
         </property>
        </item>
       </widget>
+      <widget class="QLabel" name="Qrmodif">
+       <property name="geometry">
+        <rect>
+         <x>640</x>
+         <y>410</y>
+         <width>151</width>
+         <height>111</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="leqr">
+       <property name="geometry">
+        <rect>
+         <x>320</x>
+         <y>40</y>
+         <width>113</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <zorder>leqr</zorder>
+      <zorder>modifier_pati</zorder>
+      <zorder>label_7</zorder>
+      <zorder>leage2</zorder>
+      <zorder>label_8</zorder>
+      <zorder>label_9</zorder>
+      <zorder>leprenom2</zorder>
+      <zorder>lenom2</zorder>
+      <zorder>label_10</zorder>
+      <zorder>retour_3</zorder>
+      <zorder>label_14</zorder>
+      <zorder>label_15</zorder>
+      <zorder>label_16</zorder>
+      <zorder>lenum_chambre2</zorder>
+      <zorder>label_17</zorder>
+      <zorder>lecontact2</zorder>
+      <zorder>dateEdit_2</zorder>
+      <zorder>comboBox</zorder>
+      <zorder>comboBox_3</zorder>
+      <zorder>Qrmodif</zorder>
      </widget>
      <widget class="QWidget" name="stackedWidgetPage4">
       <widget class="QPushButton" name="supprimer_patient">
@@ -1222,41 +1253,6 @@ color:white;
        </property>
        <property name="text">
         <string/>
-       </property>
-      </widget>
-     </widget>
-     <widget class="QWidget" name="page_4">
-      <widget class="QTableView" name="tableViewPDFPUS">
-       <property name="geometry">
-        <rect>
-         <x>300</x>
-         <y>61</y>
-         <width>591</width>
-         <height>291</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="pushButton">
-       <property name="geometry">
-        <rect>
-         <x>130</x>
-         <y>370</y>
-         <width>93</width>
-         <height>28</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>PDF</string>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="comboBox_pdf">
-       <property name="geometry">
-        <rect>
-         <x>82</x>
-         <y>120</y>
-         <width>131</width>
-         <height>22</height>
-        </rect>
        </property>
       </widget>
      </widget>

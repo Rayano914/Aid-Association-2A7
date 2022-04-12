@@ -7,11 +7,11 @@
 class patient
 {
     int cin,age,num_chambre,contact_famille;
-    QString nom,prenom,type_maladie;
+    QString nom,prenom,type_maladie,image;
     QDate rendez_vous;
 public:
     patient();
-    patient(int,QString,QString,int,QDate,QString,int,int);
+    patient(int,QString,QString,int,QDate,QString,int,int,QString);
     //Getters
     int getcin();
     int getage();
@@ -31,6 +31,7 @@ public:
       void setnum_chambre(int num_chambre );
         void setcontact_famille(int contact_famille );
         void setrendez_vous(QDate rendez_vous);
+        void setimage(QString image);
 
         bool ajouter_patient();
         QSqlQueryModel * afficher_patient();
