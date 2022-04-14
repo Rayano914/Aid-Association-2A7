@@ -64,8 +64,8 @@ border-color:rgb(0, 0, 0);
     </property>
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>50</y>
+      <x>90</x>
+      <y>60</y>
       <width>721</width>
       <height>481</height>
      </rect>
@@ -337,9 +337,9 @@ border-color:rgb(0, 0, 0);
       <property name="geometry">
        <rect>
         <x>100</x>
-        <y>80</y>
-        <width>491</width>
-        <height>281</height>
+        <y>70</y>
+        <width>531</width>
+        <height>301</height>
        </rect>
       </property>
      </widget>

@@ -1,56 +1,9 @@
-id: 789
-type: zeineb
-prix: 2
-nombre: 6
-id_operation: 1
-Ajout
-
-id: 789
-type: maatoug
-prix: 2
-nombre: 2
-id_operation: 2
-Modif
-
-id: 12
-type: ze
-prix: 6
-nombre: 5
-id_operation: 1
-Ajout
-
 id: 5
-type: iuu
-prix: 3
-nombre: 4
+type: hjdzoi
+prix: 889
+nombre: 23
 id_operation: 1
-Ajout
+prenom:ghada
+ Ajout
 
-id: 3
-type: guhu
-prix: 5
-nombre: 3
-id_operation: 1
-Ajout
-
-id: 8
-type: fz
-prix: 3
-nombre: 2
-id_operation: 1
-Ajout
-
-id: 54
-type: zee
-prix: 6
-nombre: 2
-id_operation: 1
-Ajout
-
-id: 54
-type: maa
-prix: 6
-nombre: 2
-id_operation: 1
-Modif
 

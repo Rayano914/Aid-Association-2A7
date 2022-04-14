@@ -57,7 +57,7 @@ void MainWindow::on_affiche_equipements_clicked()
                qry1.exec();
                QStringList completionlist;
                while(qry1.next()){
-                   completionlist <<qry1.value("id_equipement").toString()<<qry1.value("type_equipement").toString() <<qry1.value("prix").toString();
+                   completionlist <<qry1.value("id_equipement").toString()<<qry1.value("type_equipement").toString() <<qry1.value("prix").toString() <<qry1.value("nombre").toString()<<qry1.value("id_operation").toString()  ;
 
 
                }
@@ -235,6 +235,9 @@ void MainWindow::on_ajouter_equipement_clicked()
 void MainWindow::on_recherche_equipement_clicked()
 {
     QString arg1=ui->lineEdit_12->text();
+    if (arg1 == NULL)
+        ui->tableView->setModel(Equi.afficher());
+    else
      ui->tableView->setModel(Equi.rechercher(arg1));
 
 }
@@ -313,5 +316,6 @@ void MainWindow::combo()
             qry2.exec();
             while(qry2.next()){
             ui->supprimer_equipement_2->addItem(qry2.value(0).toString());
+
             }
 }
