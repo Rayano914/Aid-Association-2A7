@@ -12,7 +12,10 @@ void Historique::save_txt(QString cin, QString nom, QString prenom, QString age,
          if (!file.open(QIODevice::WriteOnly|QIODevice::Append | QIODevice::Text))
           qDebug()<<"erreur";
          QTextStream out(&file);
-         //out<<"Dernier Ajout\n";
+QDate date = QDate::currentDate();
+QString s=date.toString();
+out<<"Date\t"+s+"\t"+"\n";
+         out<<"Dernier Ajout\n";
          out << "cin: "+cin+"\nnom: "+nom+"\nprenom: "+prenom+"\nage: "+age+"\ntype_maladie: "+type_maladie+"\nRendez_vous: "+rendez_vous+"\num_chambre: "+num_chambre+"\nContact_famille: "+contact_famille<< "\n\n";
 }
 

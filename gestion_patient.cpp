@@ -136,6 +136,7 @@ void Gestion_patient::on_ajoute_pati_clicked()
     int age=ui->leage->text().toInt();
     int num_chambre=ui->lenumchambre->text().toInt();
     int contact_famille=ui->lecontact->text().toInt();
+    QString cin1=ui->lecin->text();
     QString nom=ui->lenom->text();
     QString prenom=ui->leprenom->text();
     QString type_maladie=ui->comboBox_2->currentText();
@@ -165,6 +166,8 @@ QString date=ui->dateEdit->text();
                 erreur=2;
                 if(!P.chaine_Valid(prenom)||prenom=="")
                 erreur=3;
+                if(cin1=="")
+                erreur=4;
 
                 switch(erreur)
                 {
@@ -177,24 +180,21 @@ QString date=ui->dateEdit->text();
                 case 3:
                 msgbox.setText("Le nom doit être composé seulement par des lettres !");
                 break;
+                case 4:
+                     msgbox.setText("Echec d'ajout");
+                    break;
 
                 }
                 if(erreur==0){
-
+                     Historique h;
+ //ui->historique->setText(h.imp_hist());
  bool test=P.ajouter_patient();
         if(test)
         {
-            /*ui->lecin->clear();
-            ui->lenom->clear();
-            ui->leprenom->clear();
-            ui->lecontact->clear();
-            ui->lenumchambre->clear();
-            ui->dateEdit->clear();
-            ui->comboBox->clear();
-            ui->leage->clear();
-            Historique h;
+
+
           h.save_txt(ui->lecin->text(),ui->lenom->text(),ui->leprenom->text(),ui->leage->text(),type_maladie,date,ui->lenumchambre->text(),ui->lecontact->text());
-          ui->historique->setText(h.imp_hist());*/
+          ui->historique->setText(h.imp_hist());
 
 
           QrCode qr = QrCode::encodeText(QR.toUtf8().constData(), QrCode::Ecc::HIGH);
@@ -224,7 +224,16 @@ QString date=ui->dateEdit->text();
             msgbox.setText("Ajout avec succes.");
            ui->tableView->setModel(P.afficher_patient());
 
-
+           ui->lecin->clear();
+           ui->lenom->clear();
+           ui->leprenom->clear();
+           ui->lecontact->clear();
+           ui->lenumchambre->clear();
+           ui->dateEdit->clear();
+           ui->comboBox->clear();
+           ui->leage->clear();
+           ui->dateEdit->clear();
+           ui->comboBox->clear();
         }
         else
             msgbox.setText("Echec d'ajout");
@@ -425,7 +434,7 @@ void Gestion_patient::on_toolButton_6_clicked()
 }
 
 void Gestion_patient::on_toolButton_4_clicked()
-{   int cin=ui->lecin->text().toInt();
+{   /*int cin=ui->lecin->text().toInt();
     int age=ui->leage->text().toInt();
     int num_chambre=ui->lenumchambre->text().toInt();
     int contact_famille=ui->lecontact->text().toInt();
@@ -444,7 +453,7 @@ QString date=ui->dateEdit->text();
 
         Historique h;
       h.save_txt(ui->lecin->text(),ui->lenom->text(),ui->leprenom->text(),ui->leage->text(),type_maladie,date,ui->lenumchambre->text(),ui->lecontact->text());
-      ui->historique->setText(h.imp_hist());
+      ui->historique->setText(h.imp_hist());*/
     ui->stackedWidget->setCurrentIndex(1);
 }
 

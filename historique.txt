@@ -431,3 +431,233 @@ Rendez_vous: 22/04/2022
 um_chambre: 0
 Contact_famille: 1
 
+
+
+cin: 44445
+nom: VV
+prenom: HH
+age: 46
+type_maladie: Bonne Etat Sanitaire
+Rendez_vous: 22/04/2022
+um_chambre: 3
+Contact_famille: 1
+
+cin: 89655
+nom: RA
+prenom: LH
+age: 45
+type_maladie: Bonne Etat Sanitaire
+Rendez_vous: 15/04/2022
+um_chambre: 41
+Contact_famille: 0
+
+
+
+cin: 5693
+nom: rayan
+prenom: gg
+age: 53
+type_maladie: Bonne Etat Sanitaire
+Rendez_vous: 23/04/2022
+um_chambre: 2
+Contact_famille: 1
+
+mar. avr. 12 2022Dernier Ajout
+cin: 5369
+nom: kk
+prenom: mmm
+age: 20
+type_maladie: Bonne Etat Sanitaire
+Rendez_vous: 22/04/2022
+um_chambre: 1
+Contact_famille: 23
+
+mar. avr. 12 2022
+Dernier Ajout
+cin: 45693
+nom: fggg
+prenom: rr
+age: 2
+type_maladie: Bonne Etat Sanitaire
+Rendez_vous: 30/04/2022
+um_chambre: 1
+Contact_famille: 6
+
+Date	mar. avr. 12 2022	
+RayanDernier Ajout
+cin: 56983
+nom: Rayan
+prenom: lh
+age: 146
+type_maladie: Bonne Etat Sanitaire
+Rendez_vous: 23/04/2022
+um_chambre: 1455
+Contact_famille: 123
+
+Date	mar. avr. 12 2022	RayanDernier Ajout
+cin: 22225896
+nom: nnh
+prenom: mmll
+age: 963
+type_maladie: Bonne Etat Sanitaire
+Rendez_vous: 23/04/2022
+um_chambre: 123
+Contact_famille: 14
+
+Date	mar. avr. 12 2022	
+Dernier Ajout
+cin: 93317788
+nom: ali
+prenom: ff
+age: 1478
+type_maladie: Bonne Etat Sanitaire
+Rendez_vous: 23/04/2022
+um_chambre: 478
+Contact_famille: 1236
+
+Date	mar. avr. 12 2022	
+Dernier Ajout
+cin: 1
+nom: Rayan
+prenom: Lh
+age: 20
+type_maladie: Bonne Etat Sanitaire
+Rendez_vous: 22/04/2022
+um_chambre: 2
+Contact_famille: 1
+
+Date	mar. avr. 12 2022	
+Dernier Ajout
+cin: 65
+nom: Hassani
+prenom: Bacem
+age: 20
+type_maladie: Bonne Etat Sanitaire
+Rendez_vous: 22/04/2022
+um_chambre: 14
+Contact_famille: 26
+
+
+
+
+Date	mar. avr. 12 2022	
+Dernier Ajout
+cin: 5
+nom: Rayan
+prenom: lh
+age: 23
+type_maladie: Bonne Etat Sanitaire
+Rendez_vous: 21/04/2022
+um_chambre: 42
+Contact_famille: 1
+
+Date	mar. avr. 12 2022	
+Dernier Ajout
+cin: 0
+nom: ff
+prenom: lm
+age: 53
+type_maladie: Bonne Etat Sanitaire
+Rendez_vous: 21/04/2022
+um_chambre: 4
+Contact_famille: 1
+
+Date	mar. avr. 12 2022	
+Dernier Ajout
+cin: 5698
+nom: ibtihel
+prenom: hlmm
+age: 11
+type_maladie: Bonne Etat Sanitaire
+Rendez_vous: 22/04/2022
+um_chambre: 36
+Contact_famille: 1
+
+Date	mar. avr. 12 2022	
+Dernier Ajout
+cin: 77
+nom: i
+prenom: h
+age: 46
+type_maladie: Bonne Etat Sanitaire
+Rendez_vous: 22/04/2022
+um_chambre: 12
+Contact_famille: 1
+
+Date	mer. avr. 13 2022	
+Dernier Ajout
+cin: 963
+nom: kk
+prenom: Rami
+age: 20
+type_maladie: Bonne Etat Sanitaire
+Rendez_vous: 22/04/2022
+um_chambre: 1
+Contact_famille: 3
+
+Date	jeu. avr. 14 2022	
+Dernier Ajout
+cin: 8965
+nom: Daoud
+prenom: Mahmoud
+age: 20
+type_maladie: Bonne Etat Sanitaire
+Rendez_vous: 21/04/2022
+um_chambre: 6
+Contact_famille: 1
+
+Date	jeu. avr. 14 2022	
+Dernier Ajout
+cin: 58933
+nom: ra
+prenom: gg
+age: 14
+type_maladie: Bonne Etat Sanitaire
+Rendez_vous: 22/04/2022
+um_chambre: 13
+Contact_famille: 4
+
+Date	jeu. avr. 14 2022	
+Dernier Ajout
+cin: 896321
+nom: Rayan
+prenom: khl
+age: 52
+type_maladie: Bonne Etat Sanitaire
+Rendez_vous: 16/04/2022
+um_chambre: 1
+Contact_famille: 1
+
+Date	jeu. avr. 14 2022	
+Dernier Ajout
+cin: 86
+nom: aa
+prenom: bb
+age: 12
+type_maladie: Bonne Etat Sanitaire
+Rendez_vous: 22/04/2022
+um_chambre: 3
+Contact_famille: 1
+
+Date	jeu. avr. 14 2022	
+Dernier Ajout
+cin: 6933333
+nom: nnn
+prenom: kkk
+age: 85
+type_maladie: Bonne Etat Sanitaire
+Rendez_vous: 22/04/2022
+um_chambre: 14
+Contact_famille: 1
+
+Date	jeu. avr. 14 2022	
+Dernier Ajout
+cin: 8
+nom: bba
+prenom: er
+age: 60
+type_maladie: Bonne Etat Sanitaire
+Rendez_vous: 18/04/2022
+um_chambre: 2
+Contact_famille: 0
+

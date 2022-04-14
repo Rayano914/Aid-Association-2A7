@@ -1,4 +1,5 @@
 QT += core gui sql axcontainer qml quick widgets quickwidgets
+QT       += core gui sql printsupport multimedia charts serialport
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -30,7 +31,10 @@ SOURCES += \
     gestion_patient.cpp \
     patient.cpp \
     qrcode.cpp \
-    secformdialog.cpp
+secformdialog.cpp \
+arduino.cpp
+
+
 
 HEADERS += \
     connection.h \
@@ -38,11 +42,13 @@ HEADERS += \
     historique.h \
     patient.h \
     qrcode.h \
-    secformdialog.h
+secformdialog.h \
+arduino.h
+
 
 FORMS += \
     gestion_patient.ui \
-    secformdialog.ui
+secformdialog.ui
 
 
 # Default rules for deployment.
