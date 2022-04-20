@@ -188,3 +188,20 @@ void caisse::excel_dynamique()
 
                    }
 }
+bool  caisse::rechercher_id(int rech)
+{
+
+          QSqlQuery query;
+          query.prepare("SELECT * FROM CAISSE WHERE id_operation like :rech");
+
+          query.bindValue(":rech",rech);
+
+          if (query.exec()==true&&query.next()==true)
+              {
+              return true;
+          }
+          else
+          {
+              return false;
+          }
+}

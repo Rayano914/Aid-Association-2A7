@@ -1,165 +1,64 @@
-id: 777
-type: 01/01/2000
-prix: Revenue
-nombre: 99
-ajout
-
-id: 999
-type: 01/01/2000
-prix: Revenue
-nombre: 556
-ajout
-
-id: 55
-type: 01/01/2000
-prix: Revenue
-nombre: 200
-ajout
-
-id: 1200
-type: 01/01/2000
-prix: Revenue
-nombre: 30000
-id_operation: Dons
-ajout
-
-id: 13200
+id: 789
 type: 01/01/2000
 date: Revenue
-montant: 966666
+montant: 652
 details: Dons
-ajout
+prenom:malek
+ ajout
 
-id: 1446
-type: 01/01/2000
-date: Depense
-montant: 99
-details: Dons
-ajout
-
-id: 6222
-type: 01/01/2000
-date: Revenue
-montant: 14
-details: Dons
-ajout
-
-id: 99
-type: 01/01/2000
-date: Depense
-montant: 6
-details: Dons
-ajout
-
-id: 110
-type: 01/01/2000
-date: Revenue
-montant: 123
-details: Dons
-ajout
-
-id: 555
-type: 07/01/2000
-date: Depense
-montant: 2000
-details: Adherents
-ajout
-
-id: 88
-type: 01/01/2000
-date: Revenue
-montant: 99
-details: Dons
-ajout
-
-id: 1500
-type: 01/01/2000
-date: Revenue
-montant: 300
-details: Dons
-ajout
-
-id: 444444
-type: 01/01/2000
-date: Revenue
-montant: 111111
-details: Dons
-ajout
-
-id: 100
-type: 01/01/2000
-date: Depense
-montant: 96
-details: Dons
-ajout
-
-id: 123
-type: 01/01/2000
-date: Revenue
-montant: 789
-details: Dons
-ajout
-
-id: 12
+id: 796
 type: 01/01/2000
 date: Revenue
 montant: 100
 details: Dons
-ajout
+prenom:malek
+ ajout
 
-id: 500
-type: 01/01/2000
-date: Revenue
-montant: 93
-details: Dons
-ajout
-
-id: 167
-type: 01/01/2000
-date: Revenue
-montant: 167
-details: Dons
-ajout
-
-id: 176
-type: 01/01/2000
-date: Revenue
-montant: 176
-details: Dons
-ajout
-
-id: 99999
-type: 01/01/2000
-date: Revenue
-montant: 999999
-details: Dons
-ajout
-
-id: 799
-type: 01/01/2000
-date: Revenue
-montant: 4
-details: Dons
-ajout
-
-id: 144
-type: 01/01/2000
-date: Revenue
-montant: 144
-details: Dons
-ajout
-
-id: 633
-type: 01/01/2000
-date: Revenue
-montant: 200
-details: Dons
-ajout
-
-id: 963
+id: 9444
 type: 01/01/2000
 date: Revenue
 montant: 963
 details: Dons
-ajout
+prenom_donateur:malek
+ ajout
+
+id: 6300
+type: 01/01/2000
+date: Revenue
+montant: 98
+details: Dons
+prenom_donateur:malek
+ ajout
+
+id: 96663
+type: 01/01/2000
+date: Revenue
+montant: 222
+details: Dons
+prenom_donateur:malek
+ ajout
+
+id: 1
+type: 01/01/2000
+date: Revenue
+montant: 85
+details: Dons
+prenom_donateur:malek
+ ajout
+
+id: 11
+type: 01/01/2000
+date: Revenue
+montant: 80
+details: Dons
+prenom_donateur:malek
+ ajout
+
+id: 4
+type: 01/01/2000
+date: Revenue
+montant: 69
+details: Dons
+prenom_donateur:malek
+ ajout
 

@@ -2,6 +2,7 @@ QT += core gui sql
 QT += printsupport
 QT += charts
 QT += widgets
+QT += core gui sql printsupport multimedia charts serialport
 
 CONFIG += c++11 console
 CONFIG -= app_bundle
@@ -21,10 +22,11 @@ SOURCES += \
         caisse.cpp \
         connection.cpp \
         excel.cpp \
-        historique.cpp \
+        historiquecaisse.cpp \
         main.cpp \
         mainwindow.cpp \
-        stat_caisse.cpp
+        stat_caisse.cpp \
+        arduino.cpp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -39,6 +41,7 @@ HEADERS += \
     caisse.h \
     connection.h \
     excel.h \
-    historique.h \
+    historiquecaisse.h \
     mainwindow.h \
-    stat_caisse.h
+    stat_caisse.h \
+    arduino.h

@@ -21,6 +21,7 @@ caisse SelectModif(int);
 QSqlQueryModel * rechercher(QString);
     QSqlQueryModel * calculatrice();
     QSqlQueryModel * showid();
+    bool rechercher_id(int);
 
     int getid_operation ();
     QString getdate_operation();

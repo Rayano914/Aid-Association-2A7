@@ -4,10 +4,11 @@
 #include "caisse.h"
 #include "QMessageBox"
 #include <QDebug>
-#include "historique.h"
+#include "historiquecaisse.h"
 #include <QSqlQueryModel>
 #include "excel.h"
 #include<QTableView> //excel
+#include <QPixmap>
 
 MainWindow::MainWindow(QWidget *parent) // parent Constructeur de la classe mainwindow généré automatiquement
     : QMainWindow(parent)
@@ -53,6 +54,15 @@ MainWindow::MainWindow(QWidget *parent) // parent Constructeur de la classe main
                     stringcompleter=new QCompleter(completionlist,this);
                     stringcompleter->setCaseSensitivity(Qt::CaseInsensitive);
                    ui->lineEdit_12->setCompleter(stringcompleter);
+                   int ret=A.connect_arduino(); // lancer la connexion à arduino
+                       switch(ret){
+                       case(0):qDebug()<< "arduino is available and connected to : "<< A.getarduino_port_name();
+                           break;
+                       case(1):qDebug() << "arduino is available but not connected to :" <<A.getarduino_port_name();
+                          break;
+                       case(-1):qDebug() << "arduino is not available";
+                       }
+                        QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(verif()));
 }
 
 MainWindow::~MainWindow()
@@ -65,7 +75,27 @@ void MainWindow::on_fleche_clicked()
 {
   ui->stackedWidget->setCurrentIndex(2);
 }
+void MainWindow::on_btn_clicked()
+{
+    data=A.read_from_arduino();
 
+
+    int o=data.toInt();
+    qDebug() << "read2: " << 0;
+    bool v=c.rechercher_id(o);
+    if(v)
+    {
+        ui->label_14->setText("id trouve");
+        A.write_to_arduino("o");
+
+    }
+    else
+    {
+          ui->label_14->setText("id non trouve");
+          A.write_to_arduino("f");
+    }
+    ui->label_16 ->setText(data);
+}
 void MainWindow::on_ajouter_caisses_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
@@ -565,4 +595,21 @@ void MainWindow::on_toolButton_2_clicked()
 }
 
 
+
+
+void MainWindow::on_Arduino_clicked()
+{
+    QPixmap m_logo_pic;
+    m_logo_pic.load("C:/Users/asus/Desktop/Gestion_Caisse/caisse1.png");
+       ui->label_15->setPixmap(m_logo_pic);
+       //ui->label_15->show();
+       //ui->label_15->setStyleSheet("background-image: url(C:/Users/asus/Desktop/Gestion_Caisse/caisse1.png);");
+       ui->stackedWidget->setCurrentIndex(4);
+}
+void MainWindow::verif()
+{
+
+
+
+}
 

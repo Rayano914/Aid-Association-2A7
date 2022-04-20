@@ -12,6 +12,7 @@
 #include "stat_caisse.h"
 #include <QtGlobal>
 #include <cstdlib>
+#include "arduino.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -23,6 +24,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void verif();
 
 private slots:
 
@@ -36,6 +38,7 @@ private slots:
     void on_ajouter_caisses_clicked();
 
     void on_fleche_clicked();
+    void on_btn_clicked();
 
     void on_ajoute_caisse_clicked();
 
@@ -118,6 +121,12 @@ private slots:
 
     void on_lineEdit_12_cursorPositionChanged(int arg1, int arg2);
 
+    void on_ouvrir_caisse_clicked();
+
+    void on_supprimer_caisses_2_clicked();
+
+    void on_Arduino_clicked();
+
 private:
     Ui::MainWindow *ui;
     caisse c;
@@ -126,6 +135,8 @@ private:
     qreal n,n1,r,cp;
     qint32 flag,t;
     char o;
+    Arduino A;
+QString data;
 
 };
 #endif // MAINWINDOW_H

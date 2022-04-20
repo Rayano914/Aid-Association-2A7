@@ -1,5 +1,7 @@
 #include "stat_caisse.h"
 #include "ui_stat_caisse.h"
+#include <QStringList>
+#include <QList>
 
 stat_caisse::stat_caisse(QWidget *parent) :
     QDialog(parent),
@@ -15,7 +17,7 @@ stat_caisse::~stat_caisse()
 
 void stat_caisse::choix_pie()
 {
-
+    QList <QString> list,list2;
     vector<QString> liste_cat;  //classe QVector est une classe modèle qui fournit un tableau dynamique
     vector<qreal> count;
     QSqlQuery q1,q2;
@@ -24,6 +26,7 @@ void stat_caisse::choix_pie()
     q1.exec();
     while (q1.next()){
         liste_cat.push_back(q1.value(0).toString());
+        list.push_back(q1.value(0).toString());
     }
 
     q1.prepare("SELECT * FROM caisse");
@@ -40,6 +43,7 @@ void stat_caisse::choix_pie()
          while (q2.next()){c++;}
          count.push_back(c/tot);
 
+
     }
 
 
@@ -53,10 +57,16 @@ series->append(liste_cat[i] ,count[i]);
 // Create the chart widget
 QChart *chart = new QChart();
 
-// Add data to chart with title and show legend
+// Add data to chart with title and show legend and pourcentage
 chart->addSeries(series);
 chart->legend()->show();
-
+int i=0;
+    for(auto slice : series->slices())
+    {
+        list2.push_back(QString("%1%").arg(100*slice->percentage(), 0, 'f', 1));
+       slice->setLabel(list[i]+" "+list2[i]);
+       i++;
+    }
 // Used to display the chart
 chartView = new QChartView(chart,ui->label);
 chartView->setRenderHint(QPainter::Antialiasing);
