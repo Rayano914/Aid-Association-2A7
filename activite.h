@@ -37,6 +37,11 @@ public:
    QSqlQueryModel * afficher();
    bool supprimer(int id_act);
    bool modifier(int id_act);
+   activite SelectModif(int id_activite);
+QSqlQueryModel * rechercher(QString);
+QSqlQueryModel * Trititre(QString) ;
+QSqlQueryModel * Tritype_act(QString) ;
+QSqlQueryModel * Trilocalisation(QString) ;
 
 
 

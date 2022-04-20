@@ -18,8 +18,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         activite.cpp \
         connection.cpp \
+        historique.cpp \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+        notif.cpp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -32,4 +34,6 @@ FORMS += \
 HEADERS += \
     activite.h \
     connection.h \
-    mainwindow.h
+    historique.h \
+    mainwindow.h \
+    notif.h
