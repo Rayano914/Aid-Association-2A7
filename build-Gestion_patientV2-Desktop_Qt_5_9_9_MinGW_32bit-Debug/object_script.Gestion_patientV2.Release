@@ -1,0 +1,16 @@
+INPUT(
+./release\event.o
+./release\sqleventmodel.o
+./release\connection.o
+./release\historique.o
+./release\main.o
+./release\gestion_patient.o
+./release\patient.o
+./release\qrcode.o
+./release\secformdialog.o
+./release\qrc_resources.o
+./release\moc_event.o
+./release\moc_sqleventmodel.o
+./release\moc_gestion_patient.o
+./release\moc_secformdialog.o
+);

@@ -1,0 +1,14 @@
+id: 11111
+type: jkjk
+prix: 88
+nombre: 009
+id_operation: 10
+Ajout
+
+id: 11
+type: cc
+prix: 33
+nombre: 11
+id_operation: 10
+Ajout
+
