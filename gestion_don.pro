@@ -1,5 +1,6 @@
 QT += core gui sql
-QT += widgets
+QT += widgets network
+QT += serialport
 
 CONFIG += c++11 console
 CONFIG -= app_bundle
@@ -22,13 +23,22 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     connection.cpp \
     don.cpp \
+    duscene.cpp \
+    gifanimation.cpp \
+    historique.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    arduino.cpp
+
 
 HEADERS += \
     connection.h \
     don.h \
-    mainwindow.h
+    duscene.h \
+    gifanimation.h \
+    historique.h \
+    mainwindow.h  \
+    arduino.h
 
 FORMS += \
     mainwindow.ui

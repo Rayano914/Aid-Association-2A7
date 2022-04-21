@@ -31,9 +31,14 @@ class don
 
          bool ajouter_don();
          QSqlQueryModel * afficher_don();
-         bool recherche(int);
+
          bool modifier_don(int);
          bool supprimer_don(int);
+         QSqlQueryModel * triID();
+         QSqlQueryModel * tritype();
+         QSqlQueryModel *search(QString rech);
+         QString searchcin(QString rech);
+         QSqlQueryModel * trinom();
 };
 
 #endif // DON_H

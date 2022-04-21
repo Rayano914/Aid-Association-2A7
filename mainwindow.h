@@ -2,11 +2,15 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-
+#include<QTcpSocket>
+#include "arduino.h"
+#include <QtSerialPort/QSerialPort>
+#include <QtSerialPort/QSerialPortInfo>
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
+class Duscene;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -46,9 +50,39 @@ private slots:
 
     void on_modifier_don_clicked();
 
+    void on_trier_clicked();
+    void on_rech_textChanged(const QString &arg1);
+    void on_retour_5_clicked();
+
+
+
+    void on_hist_clicked();
+
+    void on_chatbox_clicked();
+
+    void on_connecter_clicked();
+
+    void on_pushButton_clicked();
+
+    void on_retour_6_clicked();
+
+    void on_chatbox_2_clicked();
+
+    void on_modifier_don_2_clicked();
+    void update_label();
+
+    void on_retour_7_clicked();
+
 private:
     Ui::MainWindow *ui;
 
+    QTcpSocket *mSocket;
 
+    QByteArray data;
+    Duscene *mScene;
+
+    arduino A;
+
+    QString res="";
 };
 #endif // MAINWINDOW_H

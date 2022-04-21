@@ -1,10 +1,5 @@
-id: 5515
-type: malzmapl
-prix: iodin
-nombre: ldk
-equipement
-id: 544
-type: malek
-prix: ayedihsdj
-nombre: kkk
-argent
+id: 252
+type: had
+prix: ojojfoj
+nombre: equipement
+kajfjkjfk

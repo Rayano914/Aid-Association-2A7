@@ -46,7 +46,24 @@ void don::setmail_donateur(QString mail_donateur){
 void don::setid_don(int id_don){
     this->id_don=id_don;
 }
-
+QSqlQueryModel * don::triID()
+{
+    QSqlQueryModel *model=new QSqlQueryModel();
+    model->setQuery("select * from don order by ID_DON");
+    return model;
+}
+QSqlQueryModel * don::tritype()
+{
+    QSqlQueryModel *model=new QSqlQueryModel();
+    model->setQuery("select * from don order by TYPE_DON");
+    return model;
+}
+QSqlQueryModel * don::trinom()
+{
+    QSqlQueryModel *model=new QSqlQueryModel();
+    model->setQuery("select * from don order by NOM_DONATEUR");
+    return model;
+}
 
 bool don::ajouter_don(){
 
@@ -71,6 +88,7 @@ bool don::ajouter_don(){
 
     return query.exec();
 }
+
 
 QSqlQueryModel * don::afficher_don()
 {
@@ -101,35 +119,34 @@ bool don::supprimer_don(int ID_DON){
                                         }
 
 
-bool don::recherche(int ID_DON){
-    QMessageBox msgBox;
-    QSqlQuery query;
-     QString id_don_string=QString::number(ID_DON);
-    query.prepare("SELECT * FROM don WHERE ID_DON= :ID_DON");
-    query.bindValue(":ID_DON", ID_DON);
-    if (query.exec() && query.next())
-    {
-            return true;
-    }
-    else
-    {
-        msgBox.setText("don n existe pas");
-        msgBox.exec();
-        return false;
-    }
+QSqlQueryModel * don::search(QString rech){
 
+    QSqlQueryModel *model= new QSqlQueryModel();
+      model->setQuery("SELECT * FROM don WHERE ID_DON  LIKE'%"+rech+"%' or NOM_DONATEUR  LIKE'%"+rech+"%' or PRENOM_DONATEUR  LIKE'%"+rech+"%' or TYPE_DON  LIKE'%"+rech+"%' ");
+      return model;
 
 }
 
+QString don::searchcin(QString cin){
 
+    QSqlQuery query;
+    query.prepare("SELECT * FROM patient WHERE CIN =:cin ");
+    query.bindValue(":cin", cin);
+    if (query.exec()&&query.next())
+       {
+        return query.value(1).toString();
+    }
+
+      return "false";
+
+}
 
 bool don::modifier_don(int id_don){
 
     QSqlQuery query;
 
 
-    if (recherche(id_don))
-    {
+
 
 
           query.prepare("UPDATE don SET ID_DON=:ID_DON,NOM_DONATEUR=:NOM_DONATEUR,PRENOM_DONATEUR=:PRENOM_DONATEUR,TYPE_DON=:TYPE_DON,MAIL_DONATEUR=:MAIL_DONATEUR WHERE ID_DON=:ID_DON");
@@ -143,7 +160,7 @@ bool don::modifier_don(int id_don){
 
 
 
-    }
+
           return query.exec();
 
 
