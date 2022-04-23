@@ -161,12 +161,16 @@ void MainWindow::on_modifier_caisse_2_clicked()
                  QObject::tr("Modifier avec success\n""click ok to exit"),QMessageBox::Ok);
                  ui->tablecaisse_2->setModel(a.afficher()); //affichage automatique apres modification
 
+<<<<<<< HEAD
                  if (date_activite <QDate::currentDate())
                  {
 
                      notif n ("evenemnt à venir","vous avez un evénemnt bientot");
                      n.afficher();
                  }
+=======
+
+>>>>>>> e4a01b67bc1952bc3255053692973ebd7fa8c2cf
                }
                else
                {
