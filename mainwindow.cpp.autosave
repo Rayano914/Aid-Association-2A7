@@ -2194,23 +2194,18 @@ QString nom = ui->lineEdit_20->text();
     ui->tablecaisse_2->setModel(c.rechercher(nom));
 }
 
-
-
-
 void MainWindow::on_Arduino_caisses_clicked()
 {
 QPixmap m_logo_pic;
 m_logo_pic.load("C:/Users/asus/Desktop/Gestion_Caisse/caisse1.png");
    ui->label_15->setPixmap(m_logo_pic);
-   //ui->label_15->show();
-   //ui->label_15->setStyleSheet("background-image: url(C:/Users/asus/Desktop/Gestion_Caisse/caisse1.png);");
    ui->stackedWidget_5->setCurrentIndex(4);
 }
 
 
 void MainWindow::on_affiche_emp_12_clicked()
 {
-               ui->stackedWidget->setCurrentIndex(18);
+      ui->stackedWidget->setCurrentIndex(18);
 }
 
 void MainWindow::on_mailing_15_clicked()

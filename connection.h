@@ -10,10 +10,6 @@ public:
     Connection();
     bool createconnect();
     int Authentification(QString nom_utilisateur,QString mdp);
-<<<<<<< HEAD
-    QSqlDatabase db;
-=======
->>>>>>> 908e8bae17dca09ea0cbf44857754ce143348170
 };
 
 #endif // CONNECTION_H

@@ -33,7 +33,7 @@ public:
     int get_id_operation(){return id_operation;}
    //Cruds
    bool ajouter();
-   QSqlQueryModel * afficher_equipement();
+   QSqlQueryModel * afficher();
    bool supprimer(int cin_e);
    bool modifier();
    //Metiers

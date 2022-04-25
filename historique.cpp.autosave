@@ -98,7 +98,7 @@ QSqlQuery query;
             query.exec();
      query.next() ;
      prenom_donateur=query.value("prenom_donateur").toString();
-    QFile file ("C:/Users/asus/Desktop/Gestion_Caisse/historique.txt");
+    QFile file ("C:/Users/Ghada/Desktop/ghada/historique_caisse.txt");
          if (!file.open(QIODevice::WriteOnly|QIODevice::Append | QIODevice::Text))
           qDebug()<<"erreur";
          QTextStream out(&file);
@@ -107,7 +107,7 @@ QSqlQuery query;
 QString historique::imp()
 {
     ch="";
-       QFile file("C:/Users/asus/Desktop/Gestion_Caisse/historique.txt");
+       QFile file("C:/Users/Ghada/Desktop/ghada/historique_caisse.txt");
        if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
          ch="";
 

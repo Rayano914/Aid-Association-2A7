@@ -49,7 +49,7 @@ bool equipements::ajouter()
 
 //AFFICHER--------------------------------------------------------------------------------------
 
-QSqlQueryModel * equipements::afficher_equipement()
+QSqlQueryModel * equipements::afficher()
 {
     QSqlQueryModel * model =new QSqlQueryModel();
 

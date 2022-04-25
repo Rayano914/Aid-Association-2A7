@@ -50,14 +50,6 @@ int Connection::Authentification(QString nom_utilisateur,QString mdp)
                 if (spec=="Directeur")
                 return 7;
                 else
-                if (spec=="Responsable Logistiques")
-                return 14;
-                else
-                if (spec=="tresorier")
-                return 15;
-                else
-                if (spec=="Responsable Patients")
-                return 11;
                 if (spec=="tresorier")
                 return 13;
                 else
