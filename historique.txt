@@ -1,0 +1,11 @@
+Date	mar. avr. 26 2022	
+Dernier Ajout
+cin: 6
+nom: gg
+prenom: lk
+age: 52
+type_maladie: Bonne Etat Sanitaire
+Rendez_vous: 27/04/2022
+um_chambre: 13
+Contact_famille: 5
+

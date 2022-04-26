@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qml/main.qml</file>
+        <file>images/eventindicator.png</file>
+        <file>image/1024px-Search_Icon.svg.png</file>
+        <file>image/1200px-OOjs_UI_icon_history.svg.png</file>
+        <file>image/17445.png</file>
+        <file>image/31096.png</file>
+        <file>image/arrows-sort_1.png</file>
+        <file>image/re.png</file>
+        <file>image/téléchargement__2_-removebg-preview - Copie.png</file>
+        <file>image/téléchargement__2_-removebg-preview.png</file>
+    </qresource>
+</RCC>

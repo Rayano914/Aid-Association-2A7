@@ -1,6 +1,6 @@
 #include "historique.h"
 #include <QSqlQuery>
-
+#include <QDate>
 historique::historique()
 {
 
@@ -120,4 +120,34 @@ QString historique::imp()
 
       }
       return ch;
+}
+void historique::save_txt_p(QString cin, QString nom, QString prenom, QString age, QString type_maladie, QString rendez_vous, QString num_chambre, QString contact_famille)
+{
+    QFile file ("C:/Users/rayan/Downloads/Aid-Association_integration/Aid-Association-2A7-main/historique.txt");
+         if (!file.open(QIODevice::WriteOnly|QIODevice::Append | QIODevice::Text))
+          qDebug()<<"erreur";
+         QTextStream out(&file);
+QDate date = QDate::currentDate();
+QString s=date.toString();
+out<<"Date\t"+s+"\t"+"\n";
+         out<<"Dernier Ajout\n";
+         out << "cin: "+cin+"\nnom: "+nom+"\nprenom: "+prenom+"\nage: "+age+"\ntype_maladie: "+type_maladie+"\nRendez_vous: "+rendez_vous+"\num_chambre: "+num_chambre+"\nContact_famille: "+contact_famille<< "\n\n";
+}
+
+QString historique::imp_hist_p()
+{
+    ch1="";
+       QFile file("C:/Users/rayan/Downloads/Aid-Association_integration/Aid-Association-2A7-main/historique.txt");
+       if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+         ch1="";
+
+       QTextStream in(&file);
+
+      while (!in.atEnd()) {
+
+            QString myString = in.readLine();
+            ch1+=myString+"\n";
+
+      }
+      return ch1;
 }

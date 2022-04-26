@@ -20,9 +20,11 @@ public:
     QString imp();
     void save_t(QString,QString,QString,QString,QString,QString);
 
+    void save_txt_p(QString,QString,QString,QString,QString,QString,QString,QString);
+    QString imp_hist_p();
 
 private:
-    QString chaine,ch;
+    QString chaine,ch,ch1;
 };
 
 #endif // HISTORIQUE_H

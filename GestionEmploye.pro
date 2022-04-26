@@ -1,6 +1,6 @@
 QT       += core gui sql\
    quick serialport charts
-
+QT += core gui sql axcontainer qml quick widgets quickwidgets
 
 TRANSLATIONS += eng.ts
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -47,7 +47,12 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     notif.cpp \
-    stat_caisse.cpp
+    secformdialog.cpp \
+    stat_caisse.cpp \
+    patient.cpp \
+    qrcode.cpp \
+    src/event.cpp \
+    src/sqleventmodel.cpp
 
 HEADERS += \
     OrangeSMS.h \
@@ -78,10 +83,17 @@ HEADERS += \
     mail/smtpclient.h \
     mainwindow.h \
     notif.h \
-    stat_caisse.h
+    secformdialog.h \
+    stat_caisse.h \
+    patient.h \
+    qrcode.h \
+    src/event.h \
+    src/qtquickcontrolsapplication.h \
+    src/sqleventmodel.h
 
 FORMS += \
     mainwindow.ui \
+    secformdialog.ui \
     stat_caisse.ui
 
 
@@ -91,4 +103,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
+    resources.qrc \
     translation.qrc

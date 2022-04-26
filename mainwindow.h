@@ -27,7 +27,8 @@
 #include <QtGlobal>
 #include "caisse.h"
 #include <cstdlib>
-
+#include "patient.h"
+#include "secformdialog.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -66,7 +67,7 @@ private slots:
 
     void on_mailing_clicked();
 
-    void on_comboBox_modif_activated(int index);
+    //void on_comboBox_modif_activated(int index);
 
     void on_comboBox_modif_currentIndexChanged(int index);
 
@@ -120,7 +121,7 @@ private slots:
 
     void on_login_9_clicked();
 
-    void on_login_3_clicked();
+    //void on_login_3_clicked();
 
     void on_login_4_clicked();
 
@@ -344,6 +345,68 @@ private slots:
     void on_affiche_emp_12_clicked();
 
     void on_mailing_15_clicked();
+    /********************************************************************************/
+
+    void on_calendrier_clicked();
+
+    void on_add_patient_clicked();
+
+    void on_dispaly_patients_clicked();
+
+    void on_update_patients_clicked();
+
+    void on_delete_patients_clicked();
+
+    void on_retour_9_clicked();
+
+    void on_retour_10_clicked();
+
+    void on_retour_11_clicked();
+
+    void on_retour_8_clicked();
+
+    void on_ajoute_pati_clicked();
+
+    //void on_comboBox_sup_currentIndexChanged(const QString &arg1);
+
+    //void on_comboBox_currentIndexChanged(const QString &arg1);
+
+    void on_modifier_pati_clicked();
+
+    void on_supprimer_patient_clicked();
+
+    //void on_lineEdit_12_textChanged(const QString &arg1);
+
+    void on_toolButton_16_clicked();
+
+    void on_toolButton_17_clicked();
+
+    //void on_toolButton_clicked();
+
+    void on_toolButton_15_clicked();
+
+    //void on_toolButton_4_clicked();
+
+    void on_calendarAjout_clicked(const QDate &date);
+
+    void on_qrCode_clicked();
+
+    void on_calendarAjout_selectionChanged();
+
+
+    void on_affiche_emp_15_clicked();
+
+    void on_comboBox_5_currentIndexChanged(const QString &arg1);
+
+    void on_comboBox_sup_2_currentIndexChanged(const QString &arg1);
+
+    void on_toolButton_19_clicked();
+
+    void on_toolButton_14_clicked();
+
+    void on_lineEdit_14_textChanged(const QString &arg1);
+
+    void on_toolButton_18_clicked();
 
 private:
     Ui::MainWindow *ui;
@@ -364,6 +427,9 @@ private:
    qreal n,n1,r,cp;
    qint32 flag,t;
    char o;
-
+   QString selected;
+   QCompleter *StringCompleter;
+patient p;
+   secformdialog *secDialog;
 };
 #endif // MAINWINDOW_H
